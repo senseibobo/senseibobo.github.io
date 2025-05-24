@@ -11,18 +11,95 @@
     </div>
     <div class="main">
       <h1 class="title">Projects</h1>
-      <div class="projects">
-        <div class="project-container">
-          <img class="project-image" src="images/badweek.png" />
-         <div class="project-info">
-		  <p class="project-title">- Bad Week</p>
-		  <p class="project-description">3D Retro Story-based Horror Game</p>
-		  <div class="links">
-			<span class="link"><a href="https://bo-gi.itch.io/bad-week">> itch.io</a></span>
-			<span class="link"><a href="https://www.instagram.com/badweek.game">> Instagram</a></span>
-		 </div>
-        </div>
-      </div>
+      <p>These are some of the projects that I'd like to feature:</p>
+      <div id="projects" class="projects"></div>
+      <p>
+        <br />
+        If you'd like to see more of my projects, you can find them here:
+        <br />
+        <a href="https://github.com/senseibobo">> GitHub</a>
+        <br />
+        <a href="https://bo-gi.itch.io">> itch.io</a>
+        <br />
+        <br />
+      </p>
     </div>
+    <script>
+      let projectsArray = [
+        {
+          name: "Bad Week",
+          description: "3D Retro Story-based Horror Game",
+          links: {
+            "itch.io": "https://bo-gi.itch.io/bad-week",
+            instagram: "https://www.instagram.com/badweek.game",
+          },
+          image: "images/badweek.png",
+        },
+        {
+          name: "League of Legends clone",
+          description: "My decent attempt at making a multiplayer game :)",
+          links: {
+            GitHub: "https://github.com/senseibobo/lol-clone",
+          },
+          image: "images/lolclone.jpg",
+        },
+        {
+          name: "AUDIOCITY",
+          description: "Two Lane Rhythm Game with Chart Editing Functionality",
+          links: {
+            "itch.io": "https://bo-gi.itch.io/audiocity",
+            GitHub: "https://www.github.com/senseibobo/audiocity",
+          },
+          image: "https://img.itch.zone/aW1hZ2UvMTM3NjQzNi84MDE1ODAxLnBuZw==/347x500/xolvru.png",
+        },
+        {
+          name: "Ratation",
+          description: "Mouse in a Rotating Box",
+          links: {
+            "itch.io": "https://bo-gi.itch.io/ratation",
+            GitHub: "https://www.github.com/senseibobo/ratation",
+          },
+          image: "https://img.itch.zone/aW1hZ2UvMzEzNjg2My8xODc5ODQ3NS5wbmc=/347x500/EaaAC0.png",
+        },
+        {
+          name: "SignUp",
+          description: "Genre-defying Captcha Solving Simulator",
+          links: {
+            "itch.io": "https://bo-gi.itch.io/signup",
+            GitHub: "https://www.github.com/senseibobo/signup",
+          },
+          image: "images/signup.jpg",
+        },
+        {
+          name: "r00tnik",
+          description: "Ambient-focused Cinematic Game",
+          links: {
+            "itch.io": "https://klipik-rez.itch.io/rootnik",
+          },
+          image: "images/r00tnik.jpg",
+        },
+      ];
+
+      let projects = document.getElementById("projects");
+      projectsArray.forEach((e, i) => {
+        let linksString = "";
+        Object.entries(e.links).forEach(([key, value]) => {
+          linksString += `<span class="link"><a href="${value}">>&nbsp;${key} </a></span>`;
+        });
+
+        projects.innerHTML +=
+          `
+			<div class="project-container">
+				<img class="project-image" src="${e.image}" />
+				<div class="project-info">
+				<p class="project-title">- ${e.name}</p>
+				<p class="project-description">${e.description}</p>
+				<div class="links">` +
+          linksString +
+          `</div>
+		</div>
+		`;
+      });
+    </script>
   </body>
 </html>
